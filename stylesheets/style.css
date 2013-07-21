@@ -1,0 +1,33 @@
+.trackingform {
+	width: 600px;
+	margin-right: 20px;
+	border: 1px solid #000000;
+	padding: 10px;
+}
+
+label {
+	width: 200px;
+	display: inline-block;
+	text-align: right;
+	margin: 2px 4px 6px 4px;
+}
+
+input,select { 
+  border: 1px solid #000000;
+  background: #ffffcc;
+}
+ 
+.input1 {
+	width: 200px;
+}  
+.input2 {
+  width: 90px;
+}
+
+.input3 {
+  width: 25px;
+}
+
+.sub-button {
+	margin-left:212px;
+}
