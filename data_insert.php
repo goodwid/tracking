@@ -3,7 +3,7 @@ include ("./dbinfo.inc.php");
 
 echo <<< EOF
 <html>
-<head><!-- <meta http-equiv="refresh" content="2;URL=tracking.html"> -->
+<head><meta http-equiv="refresh" content="2;URL=tracking.html">
 <title>Uploaded!</title>
 </head>
 <body>
