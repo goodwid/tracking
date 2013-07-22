@@ -3,7 +3,7 @@ include ("./dbinfo.inc.php");
 
 echo <<< EOF
 <html>
-<head><meta http-equiv="refresh" content="4;URL=uploader.html">
+<head><!-- <meta http-equiv="refresh" content="2;URL=tracking.html"> -->
 <title>Uploaded!</title>
 </head>
 <body>
@@ -12,10 +12,20 @@ EOF;
 $disp=$_REQUEST["disp"];
 $computername=$_REQUEST["computername"];
 $username=$_REQUEST["username"];
-$win7activation=$_REQUEST["win7activation"];
-$officeactivation=$_REQUEST["officeactivation"];
+$win7temp=$_REQUEST["win7activation"];
+if ($win7temp="yes")
+  { $win7activation="yes"; }
+   else
+  { $win7activation="no"; }
+$officetemp=$_REQUEST["officeactivation"];
+if ($officetemp="yes")
+  { $officeactivation="yes"; }
+   else
+  { $officeactivation="no"; }
+
 $computermodel=$_REQUEST["computermodel"];
 $computerfamily=$_REQUEST["computerfamily"];
+$formfactor=$_REQUEST["formfactor"];
 $ram=$_REQUEST["ram"];
 $serialno=$_REQUEST["serialno"];
 $asset=$_REQUEST["asset"];
@@ -28,7 +38,9 @@ $notes=$_REQUEST["notes"];
 
 $timestamp=date("j F Y H:i");
 
-$query="INSERT INTO $table VALUES ('','$disp','$computername','$username','$win7activation','$officeactivation','$computermodel','$computerfamily','$ram','$serialno','$asset','$tagcolor','$bailout','$bailpass','$modification','$retirement','$notes','$timestamp')";
+$query="INSERT INTO $table VALUES ('','$disp','$computername','$username','$win7activation','$officeactivation','$computermodel','$computerfamily','$formfactor','$ram','$serialno','$asset','$tagcolor','$bailout','$bailpass','$modification','$retirement','$notes','$timestamp')";
+
+echo "the query is $query.<br>";
 
 mysql_connect($dbhost,$user,$password);
 @mysql_select_db($database) or die( "Unable to select database");
