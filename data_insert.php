@@ -3,7 +3,7 @@ include ("./dbinfo.inc.php");
 
 echo <<< EOF
 <html>
-<head><meta http-equiv="refresh" content="2;URL=tracking.html">
+<head><meta http-equiv="refresh" content="20;URL=tracking.html">
 <title>Uploaded!</title>
 </head>
 <body>
@@ -36,9 +36,10 @@ $modification=$_REQUEST["modification"];
 $retirement=$_REQUEST["retirement"];
 $notes=$_REQUEST["notes"];
 
-$timestamp=date("j F Y H:i");
+$timeentered=date("j F Y H:i");
+echo "timestamp = $timeentered </br>";
 
-$query="INSERT INTO $table VALUES ('','$disp','$computername','$username','$win7activation','$officeactivation','$computermodel','$computerfamily','$formfactor','$ram','$serialno','$asset','$tagcolor','$bailout','$bailpass','$modification','$retirement','$notes','$timestamp')";
+$query="INSERT INTO $table VALUES ('','$disp','$computername','$username','$win7activation','$officeactivation','$computermodel','$computerfamily','$formfactor','$ram','$serialno','$asset','$tagcolor','$bailout','$bailpass','$modification','$retirement','$notes','$timeentered');";
 
 echo "the query is $query.<br>";
 
@@ -50,7 +51,7 @@ mysql_close();
 
 $myFile = "/tmp/tracking.csv";
 $fh = fopen($myFile, 'a') or die("can't open file");
-$stringData = "$disp,$computername,$username,$win7activation,$officeactivation,$computermodel,$computerfamily,$ram,$serialno,$asset,$tagcolor,$bailout,$bailpass,$modification,$retirement,$notes,$timestamp\n";
+$stringData = "$disp,$computername,$username,$win7activation,$officeactivation,$computermodel,$computerfamily,$ram,$serialno,$asset,$tagcolor,$bailout,$bailpass,$modification,$retirement,$notes,$entered\n";
 fwrite($fh, $stringData);
 fclose($fh);
 
