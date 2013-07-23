@@ -29,6 +29,11 @@ function search_computer(modelname) {
         document.getElementById('computerfamily').value = 'Elitebook 8460p';
         document.getElementById('formfactor').selectedIndex = 1;
         break;
+      case "QV985AV":
+        document.getElementById('computerfamily').value = 'HP 6300 Pro';
+        document.getElementById('formfactor').selectedIndex = 0;
+        break;
+	
       default:
     }
 }
