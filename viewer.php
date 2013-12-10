@@ -52,7 +52,13 @@ $timeentered=mysql_result($result,$i,"timestamp");
       else { 
 	echo "<tr bgcolor=\"#bbbbbb\">"; }
 echo <<<EOF
-        <td>$computername</td><td>$username</td><td>$computerfamily</td><td>$ram</td><td>$asset</td><td><input value="$notes"></td><td>$timeentered</td>
+        <td>$computername</td>
+	<td>$username</td>
+	<td>$computerfamily</td>
+	<td>$ram</td>
+	<td>$asset</td>
+	<td><input value="$notes"></td>
+	<td>$timeentered</td>
         <td><input type="button" value="More Info" onclick="window.open('./userinfo.php?id=$id&name=$username',name='userinfo')"</tr>
     </tr>
 EOF;

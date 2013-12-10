@@ -10,7 +10,7 @@ echo <<< EOF
 EOF;
 
 $disp=$_REQUEST["disp"];
-$computername=$_REQUEST["computername"];
+$computername=$_POST["computername"];
 $username=$_REQUEST["username"];
 $win7temp=$_REQUEST["win7activation"];
 if ($win7temp="yes")
