@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title>Zones Inc. Computer tracking for Helpdesk</title>
+	<link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
+</head>
+<body>
+	<script src="scripts/tracking.js" type="text/javascript"></script>
+	<div class="trackingform">
+		<form action="data_insert.php" method="post">
+			<input type="hidden" name="table" value="people" />
+			<p>
+				<label for="name">Name</label>
+				<input id="name" name="name" class="input1" required />
+				<label for="startdate">Start Date</label>
+				<input id="startdate" name="startdate" class="input1" />
+				<label for="termdate">Term Date</label>
+				<input id="termdate" name="termdate" class="input1" />
+				<label for="department">Department</label>
+				<input id="department" name="department" class="input1" />
+				<label for="22_in_monitors">22" Monitors</label>
+				<input id="22_in_monitors" name="22_in_monitors" class="input1" />
+				<br>
+				<label for="notes">Notes:</label>
+				<input id="notes" name="notes" class="input1" />
+				<br>
+				<input class="sub-button" type="submit" value="Submit" />
+			</p>
+		</form>
+	</div>
+	<p><a href="./view_people.php">List users</a> </p>
+
+
+
+</body>
+</html>
+
+

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title>Zones Inc. Computer tracking for Helpdesk</title>
+	<link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
+</head>
+<body>
+	<script src="scripts/tracking.js" type="text/javascript"></script>
+	<div class="trackingform">
+		<form action="data_insert.php" method="post">
+			<input type="hidden" name="table" value="computers" />
+			<p>
+				<label for="computername">Computer Name</label>
+				<input id="computername" name="computername" class="input1" required />
+				<label for="computermodel">Computer model:</label>
+				<input id="computermodel" name="computermodel" class="input2" required oninput="search_computer(document.getElementById('computermodel').value)" />
+	
+				<br>
+				<label for="computerfamily">Computer Family:</label>
+				<input id="computerfamily" name="computerfamily" class="input1" required />
+				<br>
+				<label for="formfactor">Form Factor:</label>
+				<select id="formfactor" name="formfactor" class="input2">
+					<option value="Desktop" selected>Desktop</option>
+					<option value="Laptop">Laptop</option>
+				</select>
+				<br>
+				<label for="ram">RAM:</label>
+				<input id="ram" name="ram" class="input3" />
+				<br>
+				<label for="CPU">CPU:</label>
+				<input id="cpu" name="cpu" class="input3" />
+				<br>
+				<label for="serialno">Serial No.:</label>
+				<input id="serialno" name="serialno" class="input2" required oninput="upperserialno(document.getElementById('serialno').value)" />
+				<br>
+				<label for="asset">Asset tag:</label>
+				<input id="asset" name="asset" class="input2" required />
+				<br>
+				<label for="tagcolor">Tag color:</label>
+				<select id="tagcolor" name="tagcolor" class="input2">
+					<option value="Blue" selected>Blue</option>
+					<option value="Red">Red</option>
+				</select>
+				<br>
+				<label for="bailout">Bailout username:</label>
+				<input id="bailout" name="bailout" class="input2" />
+				<br>
+				<label for="bailpass">Bailout password:</label>
+				<input id="bailpass" name="bailpass" class="input2" />
+				<br>
+				<label for="notes">Notes:</label>
+				<input id="notes" name="notes" class="input1" />
+				<br>
+				<input class="sub-button" type="submit" value="Submit" />
+			</p>
+		</form>
+	</div>
+	<p><a href="./view_computer.php">List computers</a> </p>
+
+
+
+</body>
+</html>
+
+

@@ -1,62 +1,49 @@
 <?
-include ("./dbinfo.inc.php");
+include ("./dbinfo.flaim.php");
 
-echo <<< EOF
-<html>
-<head><meta http-equiv="refresh" content="20;URL=tracking.html">
-<title>Uploaded!</title>
-</head>
-<body>
-EOF;
 
-$disp=$_REQUEST["disp"];
-$computername=$_POST["computername"];
-$username=$_REQUEST["username"];
-$win7temp=$_REQUEST["win7activation"];
-if ($win7temp="yes")
-  { $win7activation="yes"; }
-   else
-  { $win7activation="no"; }
-$officetemp=$_REQUEST["officeactivation"];
-if ($officetemp="yes")
-  { $officeactivation="yes"; }
-   else
-  { $officeactivation="no"; }
-
-$computermodel=$_REQUEST["computermodel"];
-$computerfamily=$_REQUEST["computerfamily"];
-$formfactor=$_REQUEST["formfactor"];
-$ram=$_REQUEST["ram"];
-$serialno=$_REQUEST["serialno"];
-$asset=$_REQUEST["asset"];
-$tagcolor=$_REQUEST["tagcolor"];
-$bailout=$_REQUEST["bailout"];
-$bailpass=$_REQUEST["bailpass"];
-$modification=$_REQUEST["modification"];
-$retirement=$_REQUEST["retirement"];
 $notes=$_REQUEST["notes"];
+$table=$_REQUEST["table"];
 
-$timeentered=date("j F Y H:i");
-echo "timestamp = $timeentered </br>";
+switch ($table) {
+	case "computers":
+		$computername=$_REQUEST["computername"];
+		$computermodel=$_REQUEST["computermodel"];
+		$computerfamily=$_REQUEST["computerfamily"];
+		$formfactor=$_REQUEST["formfactor"];
+		$ram=$_REQUEST["ram"];
+		$cpu=$_REQUEST["cpu"];
+		$serialno=$_REQUEST["serialno"];
+		$asset=$_REQUEST["asset"];
+		$tagcolor=$_REQUEST["tagcolor"];
+		$bailout=$_REQUEST["bailout"];
+		$bailpass=$_REQUEST["bailpass"];
+		$query="INSERT INTO $table VALUES ('$computername','$computermodel','$computerfamily','$formfactor','$ram','$cpu','$serialno','$asset','$tagcolor','$bailout','$bailpass','$notes');";
+		$url="computers.html";
+		break;
+	case "people":
+		$name=$_REQUEST["name"];
+		$startdate=$_REQUEST["startdate"];
+		$termdate=$_REQUEST["termdate"];
+		$department=$_REQUEST["department"];
+		$monitors=$_REQUEST["22_in_monitors"];
+		$query="INSERT INTO $table VALUES ('','$name','$startdate','$termdate','$department','$monitors','$notes');";
+		$url="people.html";	
+		break;
+	case "locations";
+		$url="locations.html";
+		break;
+}
 
-$query="INSERT INTO $table VALUES ('','$disp','$computername','$username','$win7activation','$officeactivation','$computermodel','$computerfamily','$formfactor','$ram','$serialno','$asset','$tagcolor','$bailout','$bailpass','$modification','$retirement','$notes','$timeentered');";
+echo "<html><head><meta http-equiv=\"refresh\" content=\"40;URL=$url\">";
+echo "<title>Uploaded!</title> </head> <body>";
 
-echo "the query is $query.<br>";
-
+echo "query = $query";
+echo "<a href=\"$url\"> go back</a>";
 mysql_connect($dbhost,$user,$password);
 @mysql_select_db($database) or die( "Unable to select database");
-mysql_query($query);
+mysql_query($query) or die(mysql_error());
 mysql_close();
-
-
-$myFile = "/tmp/tracking.csv";
-$fh = fopen($myFile, 'a') or die("can't open file");
-$stringData = "$disp,$computername,$username,$win7activation,$officeactivation,$computermodel,$computerfamily,$ram,$serialno,$asset,$tagcolor,$bailout,$bailpass,$modification,$retirement,$notes,$entered\n";
-fwrite($fh, $stringData);
-fclose($fh);
-
-
-
 
 echo "Info successfully inserted into $table.";
 echo " </body> </html>";

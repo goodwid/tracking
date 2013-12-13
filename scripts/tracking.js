@@ -1,3 +1,8 @@
+function upperserialno(serialno) {
+  serialno=serialno.toUpperCase();
+  document.getElementById('serialno').value = serialno;
+}
+
 function search_computer(modelname) {
   modelname=modelname.toUpperCase();
   document.getElementById('computermodel').value = modelname;
