@@ -5,8 +5,10 @@ include ("./dbinfo.flaim.php");
 $notes=$_REQUEST["notes"];
 $table=$_REQUEST["table"];
 
+echo "$table <br />";
 switch ($table) {
 	case "computers":
+		echo "case computers selected <br />";
 		$computername=$_REQUEST["computername"];
 		$computermodel=$_REQUEST["computermodel"];
 		$computerfamily=$_REQUEST["computerfamily"];
@@ -39,6 +41,7 @@ echo "<html><head><meta http-equiv=\"refresh\" content=\"40;URL=$url\">";
 echo "<title>Uploaded!</title> </head> <body>";
 
 echo "query = $query";
+echo "<br />";
 echo "<a href=\"$url\"> go back</a>";
 mysql_connect($dbhost,$user,$password);
 @mysql_select_db($database) or die( "Unable to select database");

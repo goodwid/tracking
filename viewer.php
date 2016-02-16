@@ -1,5 +1,4 @@
-<?
-
+<?php
 echo "<html><head>";
 echo "<title>data viewer</title></head><body>";
 
