@@ -1,7 +1,14 @@
 <?
 
-echo "<html><head>";
-echo "<title>computer viewer</title></head><body>";
+echo <<< EOF
+<html>
+<head>
+	<title>computer viewer</title>
+	<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+</head>
+<body>
+
+EOF;
 
 include ("./dbinfo.flaim.php");
 
@@ -57,7 +64,7 @@ while ($i < $num) {
         if ($i%2==0) { 
 		echo "<tr bgcolor=\"#ffffff\">"; }
             else { 
-		echo "<tr bgcolor=\"#bbbbbb\">"; }
+		echo "<tr bgcolor=\"#ffffcc\">"; }
 	echo <<<EOF
         <td>$computername</td>
 	<td>$computermodel</td>
