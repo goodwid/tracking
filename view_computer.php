@@ -78,7 +78,7 @@ while ($i < $num) {
 	<td>$bailout</td>
 	<td>$bailpass</td>
 	<td><input value="$notes"></td>
-	<td><form action="edit_computer.php" method="POST"><input type="hidden" name="asset" value="$asset"><input type="hidden" name="table" value="computers"><input type="submit" value="Edit"></form></td>
+	<td><form action="edit_computer.php" method="POST"><input type="hidden" name="asset" value="$asset"><input type="hidden" name="table" value="computers"><input type="submit" value="Edit" ></form></td>
     </tr>
 EOF;
 
